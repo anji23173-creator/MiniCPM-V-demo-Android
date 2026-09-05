@@ -1,0 +1,42 @@
+*.iml
+.gradle
+/local.properties
+/.idea/
+.DS_Store
+/build
+/captures
+.externalNativeBuild
+.cxx
+local.properties
+
+app/build/
+app/.cxx/
+.kotlin/
+
+# Native libs produced by the buildGgmlCpu_v86 task (built per-machine).
+app/src/main/jniLibs/
+
+*.gguf
+*.bin
+
+app/src/main/cpp/build-llama/
+app/src/main/cpp/build-mtmd/
+
+crash_log.txt
+err.txt
+err1.txt
+err2.txt
+logcat.txt
+logcat2.txt
+logcat_live.txt
+app/cmake_test_build2/
+
+# Locally packaged APKs are kept outside Git history. Publish distributable
+# builds through GitHub Releases instead.
+artifacts/*.apk
+
+# Keep any directory named data, but ignore everything inside it.
+**/data/**
+!**/data/
+!harness_logic/data/.gitkeep
+!app/src/main/java/com/example/minicpm_v_demo/harness/data/**

@@ -1,0 +1,77 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://local.example/schemas/story_event_schema.json",
+  "title": "Shared Story Event",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "event_id",
+    "time_index",
+    "fact",
+    "participants",
+    "witnesses",
+    "informed_characters",
+    "available_after",
+    "source_type",
+    "importance",
+    "confidence",
+    "visibility",
+    "keywords",
+    "evidence_ref",
+    "knowledge_by_character"
+  ],
+  "properties": {
+    "event_id": {"type": "string", "pattern": "^evt-[0-9]{3}$"},
+    "time_index": {"type": "integer", "minimum": 1},
+    "fact": {"type": "string", "minLength": 1},
+    "participants": {
+      "type": "array",
+      "items": {"type": "string"},
+      "uniqueItems": true
+    },
+    "witnesses": {
+      "type": "array",
+      "items": {"type": "string"},
+      "uniqueItems": true
+    },
+    "informed_characters": {
+      "type": "array",
+      "items": {"type": "string"},
+      "uniqueItems": true
+    },
+    "available_after": {"type": "string", "pattern": "^evt-[0-9]{3}$"},
+    "source_type": {
+      "enum": ["direct", "witnessed", "reported", "inferred", "narration"]
+    },
+    "importance": {"type": "number", "minimum": 0, "maximum": 1},
+    "confidence": {"type": "number", "minimum": 0, "maximum": 1},
+    "visibility": {
+      "type": "array",
+      "minItems": 1,
+      "items": {"type": "string"},
+      "uniqueItems": true
+    },
+    "keywords": {
+      "type": "array",
+      "items": {"type": "string", "minLength": 1},
+      "uniqueItems": true
+    },
+    "evidence_ref": {
+      "type": "string",
+      "pattern": "^145[3-8]\\.txt:L[1-9][0-9]*(?:-L[1-9][0-9]*)?$"
+    },
+    "knowledge_by_character": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["source", "available_after", "confidence"],
+        "properties": {
+          "source": {"enum": ["direct", "witnessed", "reported", "inferred"]},
+          "available_after": {"type": "string", "pattern": "^evt-[0-9]{3}$"},
+          "confidence": {"type": "number", "minimum": 0, "maximum": 1}
+        }
+      }
+    }
+  }
+}

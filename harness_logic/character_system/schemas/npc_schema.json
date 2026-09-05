@@ -1,0 +1,222 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://local.example/schemas/npc_schema.json",
+  "title": "Structured NPC Character Card",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "npc_id",
+    "identity_core",
+    "relationships",
+    "knowledge_scope",
+    "dynamic_state",
+    "episodic_memory",
+    "evidence_refs"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "1.0.0"
+    },
+    "npc_id": {
+      "type": "string",
+      "pattern": "^[a-z][a-z0-9_]{2,63}$"
+    },
+    "identity_core": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "name",
+        "aliases",
+        "worldview_position",
+        "background",
+        "core_motivations",
+        "values",
+        "psychological_traits",
+        "speech_style",
+        "behavior_rules",
+        "hard_constraints"
+      ],
+      "properties": {
+        "name": {"type": "string", "minLength": 1},
+        "aliases": {
+          "type": "array",
+          "items": {"type": "string", "minLength": 1},
+          "uniqueItems": true
+        },
+        "worldview_position": {"type": "string", "minLength": 1},
+        "background": {
+          "type": "array",
+          "minItems": 1,
+          "items": {"type": "string", "minLength": 1}
+        },
+        "core_motivations": {
+          "type": "array",
+          "minItems": 1,
+          "maxItems": 5,
+          "items": {"type": "string", "minLength": 1}
+        },
+        "values": {
+          "type": "array",
+          "minItems": 1,
+          "maxItems": 8,
+          "items": {"type": "string", "minLength": 1}
+        },
+        "psychological_traits": {
+          "type": "array",
+          "minItems": 8,
+          "maxItems": 12,
+          "uniqueItems": true,
+          "items": {"type": "string", "minLength": 2}
+        },
+        "speech_style": {
+          "type": "array",
+          "minItems": 2,
+          "maxItems": 8,
+          "uniqueItems": true,
+          "items": {"type": "string", "minLength": 2}
+        },
+        "behavior_rules": {
+          "type": "array",
+          "minItems": 2,
+          "maxItems": 10,
+          "items": {"type": "string", "minLength": 2}
+        },
+        "hard_constraints": {
+          "type": "array",
+          "minItems": 3,
+          "maxItems": 12,
+          "items": {"type": "string", "minLength": 2}
+        }
+      }
+    },
+    "relationships": {
+      "type": "array",
+      "items": {"$ref": "#/$defs/relationship"}
+    },
+    "knowledge_scope": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["world_fact_refs", "unknown_topics", "story_cutoff"],
+      "properties": {
+        "world_fact_refs": {
+          "type": "array",
+          "items": {"type": "string", "pattern": "^evt-[0-9]{3}$"},
+          "uniqueItems": true
+        },
+        "unknown_topics": {
+          "type": "array",
+          "items": {"type": "string", "minLength": 1},
+          "uniqueItems": true
+        },
+        "story_cutoff": {"type": "string", "pattern": "^evt-[0-9]{3}$"}
+      }
+    },
+    "dynamic_state": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "scene",
+        "emotion",
+        "quest_state",
+        "current_goal",
+        "affinity"
+      ],
+      "properties": {
+        "scene": {"type": "string", "minLength": 1},
+        "emotion": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["label", "trigger", "intensity", "decay_rule"],
+          "properties": {
+            "label": {"type": "string", "minLength": 1},
+            "trigger": {"type": "string", "minLength": 1},
+            "intensity": {"type": "number", "minimum": 0, "maximum": 1},
+            "decay_rule": {"type": "string", "minLength": 1}
+          }
+        },
+        "quest_state": {"type": "string", "minLength": 1},
+        "current_goal": {"type": "string", "minLength": 1},
+        "affinity": {"type": "integer", "minimum": -100, "maximum": 100}
+      }
+    },
+    "episodic_memory": {
+      "type": "array",
+      "items": {"$ref": "#/$defs/memory"}
+    },
+    "evidence_refs": {
+      "type": "object",
+      "minProperties": 1,
+      "additionalProperties": {
+        "type": "array",
+        "minItems": 1,
+        "items": {"$ref": "#/$defs/evidenceRef"},
+        "uniqueItems": true
+      }
+    }
+  },
+  "$defs": {
+    "evidenceRef": {
+      "type": "string",
+      "pattern": "^145[3-8]\\.txt:L[1-9][0-9]*(?:-L[1-9][0-9]*)?$"
+    },
+    "relationship": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "target_npc_id",
+        "target_name",
+        "relationship_type",
+        "attitude",
+        "basis",
+        "evidence_refs"
+      ],
+      "properties": {
+        "target_npc_id": {"type": ["string", "null"]},
+        "target_name": {"type": "string", "minLength": 1},
+        "relationship_type": {"type": "string", "minLength": 1},
+        "attitude": {"type": "string", "minLength": 1},
+        "basis": {"type": "string", "minLength": 1},
+        "evidence_refs": {
+          "type": "array",
+          "minItems": 1,
+          "items": {"$ref": "#/$defs/evidenceRef"}
+        }
+      }
+    },
+    "memory": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "fact_ref",
+        "valid_from",
+        "valid_to",
+        "source",
+        "visibility",
+        "confidence",
+        "evidence_ref"
+      ],
+      "properties": {
+        "fact_ref": {"type": "string", "pattern": "^evt-[0-9]{3}$"},
+        "valid_from": {"type": "string", "pattern": "^evt-[0-9]{3}$"},
+        "valid_to": {
+          "oneOf": [
+            {"type": "null"},
+            {"type": "string", "pattern": "^evt-[0-9]{3}$"}
+          ]
+        },
+        "source": {
+          "enum": ["direct", "witnessed", "reported", "inferred"]
+        },
+        "visibility": {
+          "type": "array",
+          "minItems": 1,
+          "items": {"type": "string", "minLength": 1},
+          "uniqueItems": true
+        },
+        "confidence": {"type": "number", "minimum": 0, "maximum": 1},
+        "evidence_ref": {"$ref": "#/$defs/evidenceRef"}
+      }
+    }
+  }
+}

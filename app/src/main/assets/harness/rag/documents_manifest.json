@@ -1,0 +1,145 @@
+{
+  "document_count": 35,
+  "documents": [
+    {
+      "path": "rag/documents/novel_test/1453.txt",
+      "bytes": 13263
+    },
+    {
+      "path": "rag/documents/novel_test/1454.txt",
+      "bytes": 21223
+    },
+    {
+      "path": "rag/documents/novel_test/1455.txt",
+      "bytes": 13438
+    },
+    {
+      "path": "rag/documents/novel_test/1456.txt",
+      "bytes": 13411
+    },
+    {
+      "path": "rag/documents/novel_test/1457.txt",
+      "bytes": 13251
+    },
+    {
+      "path": "rag/documents/novel_test/1458.txt",
+      "bytes": 13309
+    },
+    {
+      "path": "rag/documents/novel_test/qa.json",
+      "bytes": 9113
+    },
+    {
+      "path": "rag/documents/world_cup/01_world_cup_opens_new_48_team_era.txt",
+      "bytes": 5390
+    },
+    {
+      "path": "rag/documents/world_cup/02_spain_win_final_against_argentina.txt",
+      "bytes": 5069
+    },
+    {
+      "path": "rag/documents/world_cup/03_awards_after_world_cup_final.txt",
+      "bytes": 5712
+    },
+    {
+      "path": "rag/documents/world_cup/04_spain_control_and_tactical_title.txt",
+      "bytes": 5473
+    },
+    {
+      "path": "rag/documents/world_cup/05_messi_mbappe_and_new_generation.txt",
+      "bytes": 5785
+    },
+    {
+      "path": "rag/documents/world_cup/06_fans_ticketing_and_host_city_experience.txt",
+      "bytes": 5506
+    },
+    {
+      "path": "rag/documents/world_cup/07_argentina_disciplinary_case_after_final.txt",
+      "bytes": 4818
+    },
+    {
+      "path": "rag/documents/world_cup/08_fifa_commercial_plan_draws_backlash.txt",
+      "bytes": 5186
+    },
+    {
+      "path": "rag/documents/world_cup/09_england_take_third_after_ten_goal_bronze_match.txt",
+      "bytes": 3944
+    },
+    {
+      "path": "rag/documents/world_cup/10_hosts_mexico_canada_usa_under_spotlight.txt",
+      "bytes": 3930
+    },
+    {
+      "path": "rag/documents/world_cup/11_knockout_round_tests_new_format.txt",
+      "bytes": 3863
+    },
+    {
+      "path": "rag/documents/world_cup/12_non_traditional_teams_gain_world_cup_visibility.txt",
+      "bytes": 3832
+    },
+    {
+      "path": "rag/documents/world_cup/13_var_discipline_and_refereeing_under_review.txt",
+      "bytes": 3634
+    },
+    {
+      "path": "rag/documents/world_cup/14_what_2026_world_cup_means_for_future.txt",
+      "bytes": 4474
+    },
+    {
+      "path": "rag/documents/world_cup/15_spain_second_star_marks_new_cycle.txt",
+      "bytes": 3979
+    },
+    {
+      "path": "rag/documents/world_cup/16_argentina_near_repeat_ends_in_bitter_final.txt",
+      "bytes": 3630
+    },
+    {
+      "path": "rag/documents/world_cup/17_golden_boot_race_highlights_attacking_firepower.txt",
+      "bytes": 3794
+    },
+    {
+      "path": "rag/documents/world_cup/18_fan_festival_becomes_second_stage.txt",
+      "bytes": 3577
+    },
+    {
+      "path": "rag/documents/world_cup/19_world_cup_business_and_broadcast_value_soars.txt",
+      "bytes": 3839
+    },
+    {
+      "path": "rag/documents/world_cup/20_young_players_take_center_stage_in_2026.txt",
+      "bytes": 3884
+    },
+    {
+      "path": "rag/documents/world_cup/21_unai_simon_record_clean_sheets.txt",
+      "bytes": 3108
+    },
+    {
+      "path": "rag/documents/world_cup/22_rodri_midfield_master_controls_world_cup.txt",
+      "bytes": 2920
+    },
+    {
+      "path": "rag/documents/world_cup/23_final_day_in_new_york_new_jersey.txt",
+      "bytes": 3354
+    },
+    {
+      "path": "rag/documents/world_cup/24_reading_world_cup_after_the_final.txt",
+      "bytes": 3419
+    },
+    {
+      "path": "rag/documents/world_cup/25_world_cup_2026_attendance_and_goals_record.txt",
+      "bytes": 3039
+    },
+    {
+      "path": "rag/documents/world_cup/26_final_tournament_standings_show_global_shift.txt",
+      "bytes": 2928
+    },
+    {
+      "path": "rag/documents/world_cup/README.md",
+      "bytes": 1891
+    },
+    {
+      "path": "rag/documents/world_cup/qa.json",
+      "bytes": 6703
+    }
+  ]
+}

@@ -1,0 +1,55 @@
+# Python bytecode and caches
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.so
+
+# Packaging and build outputs
+.Python
+build/
+dist/
+*.egg-info/
+.eggs/
+pip-wheel-metadata/
+
+# Virtual environments
+.venv/
+venv/
+env/
+ENV/
+
+# Test, type-check, and tooling caches
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.pyre/
+.hypothesis/
+.tox/
+.nox/
+.coverage
+.coverage.*
+htmlcov/
+
+# IDE and OS files
+.DS_Store
+.idea/
+.vscode/
+
+# Local logs and runtime files
+*.log
+*.pid
+*.out
+*.err
+
+# Local environment overrides
+.env
+.env.*
+*.local
+
+# Keep the data directory shape, but ignore local datasets, models, and runtime state.
+data/**
+!data/
+!data/.gitkeep
+!data/README.md
+!data/**/

@@ -1,0 +1,25 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "harness-logic"
+version = "0.1.0"
+description = "Standalone Python harness logic extracted from MiniCPM-V-demo-Android."
+requires-python = ">=3.10"
+dependencies = []
+
+[project.optional-dependencies]
+dev = []
+llama-cpp = []
+server = []
+
+[project.scripts]
+harness-logic = "harness_logic.cli:main"
+
+[tool.setuptools]
+packages = ["harness_logic", "harness_logic.backends"]
+
+[tool.setuptools.package-dir]
+harness_logic = "."
+"harness_logic.backends" = "backends"
