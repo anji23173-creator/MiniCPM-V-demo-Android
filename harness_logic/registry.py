@@ -46,6 +46,14 @@ AVAILABLE_MODELS: List[ModelInfo] = [
         ms_repo="OpenBMB/MiniCPM5-1B-GGUF",
     ),
     ModelInfo(
+        id="minicpm5-2b",
+        display_name="MiniCPM5-2B (Q4_K_M)",
+        description_res_name="model_desc_minicpm5_2b",
+        gguf_file_name="MiniCPM5-2B-Q4_K_M.gguf",
+        ms_repo="OpenBMB/MiniCPM5-2B-gguf",
+        enable_thinking=False,
+    ),
+    ModelInfo(
         id="voxcpm2",
         display_name="VoxCPM2",
         description_res_name="model_desc_voxcpm2",

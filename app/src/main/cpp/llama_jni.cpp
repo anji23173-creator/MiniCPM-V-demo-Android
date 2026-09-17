@@ -57,6 +57,10 @@ static mtmd_context                     * g_ctx_vision;
 // 100045 = o-4.5
 // 46/460/461 = V-4.6 (instruct/thinking)
 static int                                g_minicpmv_version = 0;
+// Whether the loaded text model may enter its reasoning section. This is
+// registry-driven from Kotlin; MiniCPM5-2B disables thinking because the
+// mobile UI's short generation budget otherwise often ends before </think>.
+static bool                               g_enable_thinking = true;
 
 // Most recent slice cap requested by the upper layer.  Persists across
 // loadMmproj calls so a user-chosen value survives e.g. an unload/reload
@@ -198,6 +202,15 @@ Java_com_example_minicpm_1v_1demo_LlamaEngine_setMinicpmvVersionNative(JNIEnv * 
                                                                       jint jversion) {
     g_minicpmv_version = (int) jversion;
     LOGi("%s: minicpmv_version set to %d", __func__, g_minicpmv_version);
+}
+
+extern "C"
+JNIEXPORT void JNICALL
+Java_com_example_minicpm_1v_1demo_LlamaEngine_setEnableThinkingNative(JNIEnv * /*env*/,
+                                                                     jobject,
+                                                                     jboolean jenabled) {
+    g_enable_thinking = jenabled == JNI_TRUE;
+    LOGi("%s: enable_thinking set to %s", __func__, g_enable_thinking ? "true" : "false");
 }
 
 // Per-image slice cap.  Now wires through to mtmd_set_image_max_slice_nums
@@ -349,6 +362,36 @@ static std::string chat_add_and_format(const std::string &role, const std::strin
     chat_msgs.push_back(new_msg);
     LOGi("%s: Formatted and added %s message: \n%s\n", __func__, role.c_str(), formatted.c_str());
     return formatted;
+}
+
+// common_chat_format_single() currently does not expose the template's
+// enable_thinking input. MiniCPM5's enable_thinking=false generation prompt
+// differs by closing an empty reasoning block before answer generation, so
+// apply that equivalent prefix locally while preserving common.cpp's BOS/EOS
+// and incremental-history formatting behavior.
+static void apply_thinking_mode_to_generation_prompt(std::string &prompt) {
+    if (g_enable_thinking) {
+        return;
+    }
+
+    constexpr const char * open_with_newline = "<think>\n";
+    constexpr size_t open_with_newline_len = 8;
+    if (prompt.size() >= open_with_newline_len &&
+        prompt.compare(prompt.size() - open_with_newline_len,
+                       open_with_newline_len, open_with_newline) == 0) {
+        prompt += "\n</think>\n\n";
+        LOGi("Applied enable_thinking=false assistant prefix");
+        return;
+    }
+
+    constexpr const char * open_without_newline = "<think>";
+    constexpr size_t open_without_newline_len = 7;
+    if (prompt.size() >= open_without_newline_len &&
+        prompt.compare(prompt.size() - open_without_newline_len,
+                       open_without_newline_len, open_without_newline) == 0) {
+        prompt += "\n\n</think>\n\n";
+        LOGi("Applied enable_thinking=false assistant prefix");
+    }
 }
 
 static llama_pos stop_generation_position;
@@ -628,6 +671,7 @@ Java_com_example_minicpm_1v_1demo_LlamaEngine_processUserPrompt(
         const bool has_chat_template = common_chat_templates_was_explicit(g_chat_templates.get());
         if (has_chat_template) {
             formatted_user_prompt = chat_add_and_format(ROLE_USER, content_for_format.c_str());
+            apply_thinking_mode_to_generation_prompt(formatted_user_prompt);
         } else {
             formatted_user_prompt = content_for_format;
         }
@@ -793,6 +837,7 @@ JNIEXPORT void JNICALL
 Java_com_example_minicpm_1v_1demo_LlamaEngine_unload(JNIEnv * /*env*/, jobject /*unused*/) {
     reset_long_term_states();
     reset_short_term_states();
+    g_enable_thinking = true;
 
     if (g_ctx_vision) {
         mtmd_free(g_ctx_vision);

@@ -47,7 +47,8 @@ data class ModelInfo(
     val directAcousticUrl: String? = null,
     val ggufMd5: String? = null,
     val mmprojMd5: String? = null,
-    val acousticMd5: String? = null
+    val acousticMd5: String? = null,
+    val enableThinking: Boolean = true
 ) {
     /** True for text-only models that have no vision projector. */
     val isTextOnly: Boolean
@@ -79,7 +80,7 @@ data class ModelInfo(
         get() = if (isTextOnly) !directGgufUrl.isNullOrBlank()
                 else !directGgufUrl.isNullOrBlank() && !directMmprojUrl.isNullOrBlank()
 
-    /** Whether the model registers HF + MS repos for racing. */
+    /** Whether the model registers both HF + MS repos for racing. */
     val hasHfMsSources: Boolean
         get() = !hfRepo.isNullOrBlank() && !msRepo.isNullOrBlank()
 
@@ -140,6 +141,16 @@ data class ModelInfo(
                 msRepo = "OpenBMB/MiniCPM5-1B-GGUF"
                 // No MD5 here on purpose: HF / ModelScope serve via git-LFS
                 // which already provides hash-based integrity checks.
+            ),
+            // MiniCPM5-2B: text-only model distributed from the official
+            // OpenBMB ModelScope GGUF repository.
+            ModelInfo(
+                id = "minicpm5-2b",
+                displayName = "MiniCPM5-2B (Q4_K_M)",
+                descriptionResName = "model_desc_minicpm5_2b",
+                ggufFileName = "MiniCPM5-2B-Q4_K_M.gguf",
+                msRepo = "OpenBMB/MiniCPM5-2B-gguf",
+                enableThinking = false
             ),
             // VoxCPM2 — text-to-speech model, ~2B params, 48kHz output.
             // Two GGUF files: a BaseLM (the MiniCPM-4 based language model)

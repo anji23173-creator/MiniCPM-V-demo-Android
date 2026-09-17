@@ -65,6 +65,7 @@ class ModelInfo:
     gguf_md5: Optional[str] = None
     mmproj_md5: Optional[str] = None
     acoustic_md5: Optional[str] = None
+    enable_thinking: bool = True
 
     @property
     def is_text_only(self) -> bool:

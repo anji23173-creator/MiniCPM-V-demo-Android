@@ -343,18 +343,25 @@ class LlamaEngine private constructor(
             val mmprojSources = mutableListOf<FileSource>()
             val acousticSources = mutableListOf<FileSource>()
 
-            if (model.hasHfMsSources) {
+            if (!model.hfRepo.isNullOrBlank()) {
                 val hfBase = "https://huggingface.co/${model.hfRepo}/resolve/${model.hfBranch}"
-                val msBase = "https://www.modelscope.cn/models/${model.msRepo}/resolve/${model.msBranch}"
                 ggufSources.add(FileSource("HuggingFace", URL("$hfBase/${model.ggufRemotePath}")))
-                ggufSources.add(FileSource("ModelScope", URL("$msBase/${model.ggufRemotePath}")))
                 if (model.isTts) {
                     model.acousticRemotePath?.let { rp ->
                         acousticSources.add(FileSource("HuggingFace", URL("$hfBase/$rp")))
-                        acousticSources.add(FileSource("ModelScope", URL("$msBase/$rp")))
                     }
                 } else if (!model.isTextOnly) {
                     mmprojSources.add(FileSource("HuggingFace", URL("$hfBase/${model.mmprojRemotePath}")))
+                }
+            }
+            if (!model.msRepo.isNullOrBlank()) {
+                val msBase = "https://www.modelscope.cn/models/${model.msRepo}/resolve/${model.msBranch}"
+                ggufSources.add(FileSource("ModelScope", URL("$msBase/${model.ggufRemotePath}")))
+                if (model.isTts) {
+                    model.acousticRemotePath?.let { rp ->
+                        acousticSources.add(FileSource("ModelScope", URL("$msBase/$rp")))
+                    }
+                } else if (!model.isTextOnly) {
                     mmprojSources.add(FileSource("ModelScope", URL("$msBase/${model.mmprojRemotePath}")))
                 }
             }
@@ -881,6 +888,10 @@ class LlamaEngine private constructor(
     // logic see the right value.  Required since upstream master mtmd
     // dropped mtmd_get_minicpmv_version().  See LlamaEngine.loadModel.
     private external fun setMinicpmvVersionNative(version: Int)
+    // Controls whether a text model's chat template enters its reasoning
+    // section. MiniCPM5-2B disables it so short mobile generations produce
+    // a visible answer instead of exhausting the token budget inside <think>.
+    private external fun setEnableThinkingNative(enabled: Boolean)
     // 0 if no mmproj is loaded.  46 / 460 / 461 = MiniCPM-V-4.6 family.
     // Used by [isVideoUnderstandingSupported] to gate the video path.
     private external fun getMinicpmvVersionNative(): Int
@@ -976,6 +987,10 @@ class LlamaEngine private constructor(
                         }
                     }
                 }
+
+                val selectedModel = getSelectedModel(context)
+                setEnableThinkingNative(selectedModel.enableThinking)
+                Log.i(TAG, "Chat thinking enabled=${selectedModel.enableThinking} for ${selectedModel.id}")
 
                 prepare().let {
                     if (it != 0) throw RuntimeException("Failed to prepare resources (code: $it)")
