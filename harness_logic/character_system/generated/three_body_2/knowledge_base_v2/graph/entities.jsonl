@@ -1,0 +1,9 @@
+{"entity_id":"ding_yi","entity_type":"character","canonical_name":"丁仪","identity_kind":"canonical_character","resolution_status":"curated","description":"经历基础物理学危机的理论物理学家，末日战役前近距离识别水滴超常材料性质。"}
+{"entity_id":"luo_ji","entity_type":"character","canonical_name":"罗辑","identity_kind":"canonical_character","resolution_status":"curated","description":"面壁计划中唯一被三体世界直接视为威胁的人，黑暗森林理论的发现者与威慑体系的建立者。"}
+{"entity_id":"shi_qiang","entity_type":"character","canonical_name":"史强","identity_kind":"canonical_character","resolution_status":"curated","description":"经验丰富的刑警与安全人员，是罗辑最长期、最务实的保护者和朋友。"}
+{"entity_id":"zhang_beihai","entity_type":"character","canonical_name":"章北海","identity_kind":"canonical_character","resolution_status":"curated","description":"中国太空军军官与坚定的失败主义者，以公开的必胜姿态掩护延续人类文明的逃亡计划。"}
+{"entity_id":"zhuang_yan","entity_type":"character","canonical_name":"庄颜","identity_kind":"canonical_character","resolution_status":"curated","description":"罗辑想象中的理想女性后来成为真实伴侣，也是促使罗辑承担面壁使命的重要情感支点。"}
+{"entity_id":"entity-16bb07e59d740824","entity_type":"character","canonical_name":"杨冬","identity_kind":"relationship_target","resolution_status":"curated_label","description":"杨冬之死与基础物理学危机相连。"}
+{"entity_id":"entity-330406ecf05d8678","entity_type":"character","canonical_name":"西子","identity_kind":"relationship_target","resolution_status":"curated_label","description":"共同近距离考察三体探测器。"}
+{"entity_id":"entity-280d727e7ca749bc","entity_type":"character","canonical_name":"东方延绪","identity_kind":"relationship_target","resolution_status":"curated_label","description":"两人共同面对自然选择号的生存抉择。"}
+{"entity_id":"entity-919f502b83476128","entity_type":"character","canonical_name":"章北海的父亲","identity_kind":"relationship_target","resolution_status":"curated_label","description":"父亲塑造了章北海的意志与表达方式。"}

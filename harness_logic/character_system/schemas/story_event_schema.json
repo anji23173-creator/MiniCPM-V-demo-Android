@@ -58,7 +58,7 @@
     },
     "evidence_ref": {
       "type": "string",
-      "pattern": "^145[3-8]\\.txt:L[1-9][0-9]*(?:-L[1-9][0-9]*)?$"
+          "pattern": "^(?:145[3-8]|three_body_2)\\.txt:L[1-9][0-9]*(?:-L[1-9][0-9]*)?$"
     },
     "knowledge_by_character": {
       "type": "object",

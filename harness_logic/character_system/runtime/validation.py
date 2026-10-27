@@ -6,7 +6,7 @@ from pathlib import Path
 from typing import Any, Iterable
 
 
-EVIDENCE_RE = re.compile(r"^(145[3-8]\.txt):L([1-9]\d*)(?:-L([1-9]\d*))?$")
+EVIDENCE_RE = re.compile(r"^((?:145[3-8]|three_body_2)\.txt):L([1-9]\d*)(?:-L([1-9]\d*))?$")
 EVENT_RE = re.compile(r"^evt-\d{3}$")
 SOURCE_TYPES = {"direct", "witnessed", "reported", "inferred"}
 
@@ -63,8 +63,15 @@ def validate_evidence_ref(ref: str, novel_dir: Path) -> None:
     path = novel_dir / filename
     if not path.is_file():
         raise DataValidationError(f"evidence file does not exist: {path}")
-    with path.open("r", encoding="utf-8") as stream:
-        line_count = sum(1 for _ in stream)
+    raw = path.read_bytes()
+    for encoding in ("utf-8-sig", "gb18030"):
+        try:
+            line_count = len(raw.decode(encoding).splitlines())
+            break
+        except UnicodeDecodeError:
+            continue
+    else:
+        raise DataValidationError(f"unsupported evidence encoding: {path}")
     first_line = int(first)
     last_line = int(last or first)
     if first_line > last_line or last_line > line_count:

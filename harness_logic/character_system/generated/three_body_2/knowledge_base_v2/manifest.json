@@ -1,0 +1,538 @@
+{
+  "schema_version": "2.0.0",
+  "knowledge_base_version": "v2",
+  "title": "三体Ⅱ：黑暗森林",
+  "build_mode": "hardcoded_five_character_source_grounded",
+  "source_encoding": "GB18030",
+  "source": "E:\\DuanCe\\novel_test\\three_body_2.txt",
+  "counts": {
+    "documents": 1,
+    "scenes": 146,
+    "resolved_mentions": 2424,
+    "entities": 9,
+    "aliases": 13,
+    "events": 125,
+    "claims": 125,
+    "evidence": 125,
+    "knowledge_edges": 229,
+    "relations": 8,
+    "snapshots": 5
+  },
+  "cutoffs": {
+    "evt-001": {
+      "story_order": 1,
+      "sequence": 31
+    },
+    "evt-002": {
+      "story_order": 2,
+      "sequence": 56
+    },
+    "evt-003": {
+      "story_order": 3,
+      "sequence": 109
+    },
+    "evt-004": {
+      "story_order": 4,
+      "sequence": 142
+    },
+    "evt-005": {
+      "story_order": 5,
+      "sequence": 195
+    },
+    "evt-006": {
+      "story_order": 6,
+      "sequence": 270
+    },
+    "evt-007": {
+      "story_order": 7,
+      "sequence": 410
+    },
+    "evt-008": {
+      "story_order": 8,
+      "sequence": 443
+    },
+    "evt-009": {
+      "story_order": 9,
+      "sequence": 477
+    },
+    "evt-010": {
+      "story_order": 10,
+      "sequence": 510
+    },
+    "evt-011": {
+      "story_order": 11,
+      "sequence": 537
+    },
+    "evt-012": {
+      "story_order": 12,
+      "sequence": 565
+    },
+    "evt-013": {
+      "story_order": 13,
+      "sequence": 595
+    },
+    "evt-014": {
+      "story_order": 14,
+      "sequence": 618
+    },
+    "evt-015": {
+      "story_order": 15,
+      "sequence": 649
+    },
+    "evt-016": {
+      "story_order": 16,
+      "sequence": 692
+    },
+    "evt-017": {
+      "story_order": 17,
+      "sequence": 723
+    },
+    "evt-018": {
+      "story_order": 18,
+      "sequence": 764
+    },
+    "evt-019": {
+      "story_order": 19,
+      "sequence": 801
+    },
+    "evt-020": {
+      "story_order": 20,
+      "sequence": 825
+    },
+    "evt-021": {
+      "story_order": 21,
+      "sequence": 835
+    },
+    "evt-022": {
+      "story_order": 22,
+      "sequence": 855
+    },
+    "evt-023": {
+      "story_order": 23,
+      "sequence": 894
+    },
+    "evt-024": {
+      "story_order": 24,
+      "sequence": 921
+    },
+    "evt-025": {
+      "story_order": 25,
+      "sequence": 969
+    },
+    "evt-026": {
+      "story_order": 26,
+      "sequence": 998
+    },
+    "evt-027": {
+      "story_order": 27,
+      "sequence": 1043
+    },
+    "evt-028": {
+      "story_order": 28,
+      "sequence": 1080
+    },
+    "evt-029": {
+      "story_order": 29,
+      "sequence": 1101
+    },
+    "evt-030": {
+      "story_order": 30,
+      "sequence": 1124
+    },
+    "evt-031": {
+      "story_order": 31,
+      "sequence": 1165
+    },
+    "evt-032": {
+      "story_order": 32,
+      "sequence": 1206
+    },
+    "evt-033": {
+      "story_order": 33,
+      "sequence": 1240
+    },
+    "evt-034": {
+      "story_order": 34,
+      "sequence": 1280
+    },
+    "evt-035": {
+      "story_order": 35,
+      "sequence": 1306
+    },
+    "evt-036": {
+      "story_order": 36,
+      "sequence": 1352
+    },
+    "evt-037": {
+      "story_order": 37,
+      "sequence": 1401
+    },
+    "evt-038": {
+      "story_order": 38,
+      "sequence": 1448
+    },
+    "evt-039": {
+      "story_order": 39,
+      "sequence": 1496
+    },
+    "evt-040": {
+      "story_order": 40,
+      "sequence": 1547
+    },
+    "evt-041": {
+      "story_order": 41,
+      "sequence": 1602
+    },
+    "evt-042": {
+      "story_order": 42,
+      "sequence": 1635
+    },
+    "evt-043": {
+      "story_order": 43,
+      "sequence": 1680
+    },
+    "evt-044": {
+      "story_order": 44,
+      "sequence": 1727
+    },
+    "evt-045": {
+      "story_order": 45,
+      "sequence": 1769
+    },
+    "evt-046": {
+      "story_order": 46,
+      "sequence": 1808
+    },
+    "evt-047": {
+      "story_order": 47,
+      "sequence": 1837
+    },
+    "evt-048": {
+      "story_order": 48,
+      "sequence": 1877
+    },
+    "evt-049": {
+      "story_order": 49,
+      "sequence": 1904
+    },
+    "evt-050": {
+      "story_order": 50,
+      "sequence": 1937
+    },
+    "evt-051": {
+      "story_order": 51,
+      "sequence": 1967
+    },
+    "evt-052": {
+      "story_order": 52,
+      "sequence": 2011
+    },
+    "evt-053": {
+      "story_order": 53,
+      "sequence": 2038
+    },
+    "evt-054": {
+      "story_order": 54,
+      "sequence": 2069
+    },
+    "evt-055": {
+      "story_order": 55,
+      "sequence": 2103
+    },
+    "evt-056": {
+      "story_order": 56,
+      "sequence": 2121
+    },
+    "evt-057": {
+      "story_order": 57,
+      "sequence": 2160
+    },
+    "evt-058": {
+      "story_order": 58,
+      "sequence": 2213
+    },
+    "evt-059": {
+      "story_order": 59,
+      "sequence": 2261
+    },
+    "evt-060": {
+      "story_order": 60,
+      "sequence": 2290
+    },
+    "evt-061": {
+      "story_order": 61,
+      "sequence": 2328
+    },
+    "evt-062": {
+      "story_order": 62,
+      "sequence": 2364
+    },
+    "evt-063": {
+      "story_order": 63,
+      "sequence": 2388
+    },
+    "evt-064": {
+      "story_order": 64,
+      "sequence": 2420
+    },
+    "evt-065": {
+      "story_order": 65,
+      "sequence": 2438
+    },
+    "evt-066": {
+      "story_order": 66,
+      "sequence": 2465
+    },
+    "evt-067": {
+      "story_order": 67,
+      "sequence": 2504
+    },
+    "evt-068": {
+      "story_order": 68,
+      "sequence": 2538
+    },
+    "evt-069": {
+      "story_order": 69,
+      "sequence": 2717
+    },
+    "evt-070": {
+      "story_order": 70,
+      "sequence": 2887
+    },
+    "evt-071": {
+      "story_order": 71,
+      "sequence": 2920
+    },
+    "evt-072": {
+      "story_order": 72,
+      "sequence": 2973
+    },
+    "evt-073": {
+      "story_order": 73,
+      "sequence": 3009
+    },
+    "evt-074": {
+      "story_order": 74,
+      "sequence": 3037
+    },
+    "evt-075": {
+      "story_order": 75,
+      "sequence": 3062
+    },
+    "evt-076": {
+      "story_order": 76,
+      "sequence": 3094
+    },
+    "evt-077": {
+      "story_order": 77,
+      "sequence": 3145
+    },
+    "evt-078": {
+      "story_order": 78,
+      "sequence": 3176
+    },
+    "evt-079": {
+      "story_order": 79,
+      "sequence": 3217
+    },
+    "evt-080": {
+      "story_order": 80,
+      "sequence": 3248
+    },
+    "evt-081": {
+      "story_order": 81,
+      "sequence": 3288
+    },
+    "evt-082": {
+      "story_order": 82,
+      "sequence": 3328
+    },
+    "evt-083": {
+      "story_order": 83,
+      "sequence": 3363
+    },
+    "evt-084": {
+      "story_order": 84,
+      "sequence": 3392
+    },
+    "evt-085": {
+      "story_order": 85,
+      "sequence": 3408
+    },
+    "evt-086": {
+      "story_order": 86,
+      "sequence": 3441
+    },
+    "evt-087": {
+      "story_order": 87,
+      "sequence": 3472
+    },
+    "evt-088": {
+      "story_order": 88,
+      "sequence": 3492
+    },
+    "evt-089": {
+      "story_order": 89,
+      "sequence": 3538
+    },
+    "evt-090": {
+      "story_order": 90,
+      "sequence": 3585
+    },
+    "evt-091": {
+      "story_order": 91,
+      "sequence": 3624
+    },
+    "evt-092": {
+      "story_order": 92,
+      "sequence": 3662
+    },
+    "evt-093": {
+      "story_order": 93,
+      "sequence": 3689
+    },
+    "evt-094": {
+      "story_order": 94,
+      "sequence": 3717
+    },
+    "evt-095": {
+      "story_order": 95,
+      "sequence": 3747
+    },
+    "evt-096": {
+      "story_order": 96,
+      "sequence": 3771
+    },
+    "evt-097": {
+      "story_order": 97,
+      "sequence": 3804
+    },
+    "evt-098": {
+      "story_order": 98,
+      "sequence": 3829
+    },
+    "evt-099": {
+      "story_order": 99,
+      "sequence": 3861
+    },
+    "evt-100": {
+      "story_order": 100,
+      "sequence": 3896
+    },
+    "evt-101": {
+      "story_order": 101,
+      "sequence": 3922
+    },
+    "evt-102": {
+      "story_order": 102,
+      "sequence": 3999
+    },
+    "evt-103": {
+      "story_order": 103,
+      "sequence": 4020
+    },
+    "evt-104": {
+      "story_order": 104,
+      "sequence": 4044
+    },
+    "evt-105": {
+      "story_order": 105,
+      "sequence": 4066
+    },
+    "evt-106": {
+      "story_order": 106,
+      "sequence": 4098
+    },
+    "evt-107": {
+      "story_order": 107,
+      "sequence": 4121
+    },
+    "evt-108": {
+      "story_order": 108,
+      "sequence": 4157
+    },
+    "evt-109": {
+      "story_order": 109,
+      "sequence": 4275
+    },
+    "evt-110": {
+      "story_order": 110,
+      "sequence": 4314
+    },
+    "evt-111": {
+      "story_order": 111,
+      "sequence": 4334
+    },
+    "evt-112": {
+      "story_order": 112,
+      "sequence": 4361
+    },
+    "evt-113": {
+      "story_order": 113,
+      "sequence": 4390
+    },
+    "evt-114": {
+      "story_order": 114,
+      "sequence": 4420
+    },
+    "evt-115": {
+      "story_order": 115,
+      "sequence": 4458
+    },
+    "evt-116": {
+      "story_order": 116,
+      "sequence": 4505
+    },
+    "evt-117": {
+      "story_order": 117,
+      "sequence": 4535
+    },
+    "evt-118": {
+      "story_order": 118,
+      "sequence": 4570
+    },
+    "evt-119": {
+      "story_order": 119,
+      "sequence": 4619
+    },
+    "evt-120": {
+      "story_order": 120,
+      "sequence": 4636
+    },
+    "evt-121": {
+      "story_order": 121,
+      "sequence": 4658
+    },
+    "evt-122": {
+      "story_order": 122,
+      "sequence": 4674
+    },
+    "evt-123": {
+      "story_order": 123,
+      "sequence": 4716
+    },
+    "evt-124": {
+      "story_order": 124,
+      "sequence": 4750
+    },
+    "evt-125": {
+      "story_order": 125,
+      "sequence": 4763
+    }
+  },
+  "runtime": {
+    "database": "character_knowledge_v2.sqlite3",
+    "fts_table": "claims_fts",
+    "fts_tokenizer": "trigram",
+    "minimum_inputs": [
+      "character_id",
+      "query",
+      "story_cutoff"
+    ]
+  },
+  "validation": {
+    "passed": true,
+    "error_count": 0,
+    "errors": []
+  }
+}

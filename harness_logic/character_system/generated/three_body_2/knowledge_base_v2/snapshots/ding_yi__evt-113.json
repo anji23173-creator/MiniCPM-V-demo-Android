@@ -1,0 +1,25 @@
+{
+  "snapshot_id": "snapshot-79b95780e38d2d9b",
+  "character_id": "ding_yi",
+  "story_cutoff": "evt-113",
+  "cutoff_sequence": 4390,
+  "claim_ids": [
+    "claim-evt-005",
+    "claim-evt-032",
+    "claim-evt-033",
+    "claim-evt-054",
+    "claim-evt-062",
+    "claim-evt-063",
+    "claim-evt-070",
+    "claim-evt-095",
+    "claim-evt-096",
+    "claim-evt-097",
+    "claim-evt-099",
+    "claim-evt-100",
+    "claim-evt-101",
+    "claim-evt-102",
+    "claim-evt-104",
+    "claim-evt-113"
+  ],
+  "claim_count": 16
+}

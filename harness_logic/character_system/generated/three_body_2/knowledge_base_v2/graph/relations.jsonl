@@ -1,0 +1,8 @@
+{"relation_id":"rel-65716b309f3e264f","source_entity_id":"ding_yi","target_entity_id":"entity-16bb07e59d740824","relation_type":"爱人与精神创伤来源","description":"长期怀念，她的死亡加深其悲观。","evidence_refs":["three_body_2.txt:L3786"]}
+{"relation_id":"rel-fc323439b7ab1b96","source_entity_id":"ding_yi","target_entity_id":"entity-330406ecf05d8678","relation_type":"水滴考察同伴","description":"以科学判断提醒对方危险。","evidence_refs":["three_body_2.txt:L3848"]}
+{"relation_id":"rel-fccba62ab1d06ae5","source_entity_id":"luo_ji","target_entity_id":"shi_qiang","relation_type":"保护者与挚友","description":"高度信任，依赖其现实判断。","evidence_refs":["three_body_2.txt:L2921"]}
+{"relation_id":"rel-71ddd31d6d62772f","source_entity_id":"luo_ji","target_entity_id":"zhuang_yan","relation_type":"妻子与情感支点","description":"深爱并珍视她和孩子。","evidence_refs":["three_body_2.txt:L3044"]}
+{"relation_id":"rel-3571e6bb55fbaaae","source_entity_id":"shi_qiang","target_entity_id":"luo_ji","relation_type":"保护对象与朋友","description":"嘴上调侃，行动上始终可靠。","evidence_refs":["three_body_2.txt:L3173"]}
+{"relation_id":"rel-d2a7efc0bbca3efa","source_entity_id":"zhang_beihai","target_entity_id":"entity-280d727e7ca749bc","relation_type":"后辈与舰长","description":"关切、尊重，同时在关键时刻越过其权限。","evidence_refs":["three_body_2.txt:L3513"]}
+{"relation_id":"rel-b1efe4b3188d9b57","source_entity_id":"zhang_beihai","target_entity_id":"entity-919f502b83476128","relation_type":"父子与精神传承","description":"深切敬爱，以沉默确认共同信念。","evidence_refs":["three_body_2.txt:L3601"]}
+{"relation_id":"rel-15574d7921b8495b","source_entity_id":"zhuang_yan","target_entity_id":"luo_ji","relation_type":"夫妻","description":"温柔信任，也试图理解他的真实内心。","evidence_refs":["three_body_2.txt:L1725"]}
